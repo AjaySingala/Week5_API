@@ -1,0 +1,35 @@
+﻿@using System.Text.Encodings.Web;
+@inject JavaScriptEncoder encoder;
+
+@{
+    ViewData["Title"] = "About";
+    // For XSS (Cross-Site Scripting)
+    var untrustedInput = "<script>alert('Hello there!')</script>";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>Use this area to provide additional information.</p>
+
+@untrustedInput
+
+<div id="injectedData"
+     data-untrustedinput="@untrustedInput" />
+
+<script>
+    var injectedData = document.getElementById("injectedData");
+
+    //// All clients
+    //var clientSideUntrustedInputOldStyle =
+    //    injectedData.getAttribute("data-untrustedinput");
+
+    // HTML 5 clients only
+    var clientSideUntrustedInputHtml5 =
+        injectedData.dataset.untrustedinput;
+
+    //document.write(clientSideUntrustedInputOldStyle);
+    document.write("<br />")
+    document.write(clientSideUntrustedInputHtml5);
+
+    //document.write("@encoder.Encode(untrustedInput)");
+</script>
