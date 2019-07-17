@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			function show() {
+				var txt = document.getElementById("txtName");
+				alert(txt.value);
+				document.getElementById("btnOk").value = "Changed";
+				document.getElementById("lblName").innerHTML = "Fullname";
+			}
+		</script>
+	</head>
+<body>
+
+    <h2>JS Demos - 01</h2>
+	<div id="divOne">
+		<p id="pOne">This is a para</p>
+		<label id="lblName">Name: </label>
+		<input type="text" id="txtName"/>
+		<input type="button" id="btnOk" onclick="show();" value="Click Me!">
+			
+		</input>
+	</div>
+</body>
+</html>

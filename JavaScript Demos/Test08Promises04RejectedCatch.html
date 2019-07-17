@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Promises Demo 04 - Rejected Catch</h2>
+	<h5>Check console log</h5>
+
+    <script>
+		var promise = new Promise(function(resolve, reject) { 
+			reject('Promise Rejected'); 
+		}) 
+		  
+		promise 
+			.then(function(successMessage) { 
+			   //success handler function is invoked 
+				console.log(successMessage); 
+			})
+			.catch(function(errorMessage) { 
+				//error handler function is invoked  
+				console.log(errorMessage); 
+			})
+	</script>
+
+</body>
+</html>

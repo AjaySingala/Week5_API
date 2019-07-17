@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Promises Demo 02 - Promise Resolved</h2>
+	<h5>Check console log</h5>
+
+    <script>
+		var promise = new Promise(function(resolve, reject) { 
+			resolve('Geeks For Geeks'); 
+		}) 
+		  
+		promise 
+			.then(function(successMessage) { 
+			   //success handler function is invoked 
+				console.log(successMessage); 
+			}, function(errorMessage) { 
+				console.log(errorMessage); 
+			})
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Promises Demo 01</h2>
+	<h3>
+	Promises are used to handle asynchronous operations in JavaScript.
+	<br>A Promise has four states:
+	<br>	fulfilled: Action related to the promise succeeded
+	<br>	rejected: Action related to the promise failed
+	<br>	pending: Promise is still pending i.e not fulfilled or rejected yet
+	<br>	settled: Promise has fulfilled or rejected
+	</h3>
+	<h5>Check console log</h5>
+
+    <script>
+		var promise = new Promise(function(resolve, reject) { 
+		  const x = "something else"; 
+		  const y = "geeksforgeeks"
+		  if(x === y) { 
+			resolve(); 
+		  } else { 
+			reject(); 
+		  } 
+		}); 
+		  
+		promise. 
+			then(function () { 
+				console.log('Success, You are a GEEK'); 
+			}). 
+			catch(function () { 
+				console.log('Some error has occured'); 
+			}); 
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Closures Demo</h2>
+	<h3>A closure is the combination of a function and the lexical environment within which that function was declared.</h3>
+	
+    <script>
+		function makeFunc() {
+		  var name = 'Outer func';
+		  function displayName() {
+			alert(name);
+		  }
+		  return displayName;
+		}
+
+		var myFunc = makeFunc();
+		myFunc();    
+	</script>
+
+</body>
+</html>

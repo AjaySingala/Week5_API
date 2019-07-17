@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Callback Demo 01</h2>
+	<h3>Callbacks are a great way to handle something after something else has been completed. By something, here we mean a function execution.
+	<br>
+	If we want to execute a function right after the return of some other function, then callbacks can be used.</h3>
+
+    <script>
+		// add() function is called with arguments a, b 
+		// and callback, callback will be executed just  
+		// after ending of add() function 
+		function add(a, b , callback){ 
+			document.write(`The sum of ${a} and ${b} is ${a+b}.` +"<br>"); 
+			callback(); 
+		} 
+
+		// disp() function is called just 
+		// after the ending of add() function  
+		function disp(){ 
+			document.write('This must be printed after addition'); 
+		} 
+
+		// Calling add() function 
+		add(5,6,disp);
+   </script>
+
+</body>
+</html>

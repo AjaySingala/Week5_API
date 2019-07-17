@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Promises Demo 05 - Rejected Error</h2>
+	<h5>Check console log</h5>
+
+    <script>
+		var promise = new Promise(function(resolve, reject) { 
+			throw new Error('Some error has occured') 
+		}) 
+		  
+		promise 
+			.then(function(successMessage) { 
+				console.log(successMessage); 
+			}) 
+			.catch(function(errorMessage) { 
+			   //error handler function is invoked 
+				console.log(errorMessage); 
+			});
+
+	</script>
+
+</body>
+</html>

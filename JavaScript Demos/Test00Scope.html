@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Scope Demo - 01</h2>
+
+    <script>
+		var name = "John";	// Global
+		let id = 10;
+		function f1() {
+			//var name = "Smith";	// Local.
+			let id = 20;
+			console.log("In f1 name #1: " + name);
+			console.log("In f1 id #1: " + id);
+			
+			//let id = 20;
+			var name = "Smith";	// Local.
+			//name = "Mary";
+			console.log("In f1 name #2: " + name);
+			console.log("In f1 id #2: " + id);
+		}
+		function f2() {
+			let number = 28;
+			name = "Mary";
+			id = 222;			
+			console.log("In f2 name #1: " + name);
+			console.log("In f2 id #1: " + id);
+			console.log("In f2 number #1: " + number);
+		}
+		
+		f1();
+		console.log("name Outside f1: " + name);
+		console.log("id Outside f1: " + id);
+		f2();
+		console.log("name Outside f2: " + name);
+		console.log("id Outside f2: " + id);
+		console.log("number outside f2: " + number);
+    </script>
+
+</body>
+</html>

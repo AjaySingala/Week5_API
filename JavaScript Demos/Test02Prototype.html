@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Prototype Demo - 02</h2>
+
+    <script>
+        let protoRabbit = {
+			color: 'grey',
+			speak(line) {
+			console.log(`The ${this.type} rabbit says ${line}`);
+			  }
+		};
+		let killerRabbit = Object.create(protoRabbit);
+		killerRabbit.type = "assassin";
+		killerRabbit.speak("SKREEEE!");	// → The assassin rabbit says SKREEEE!
+
+		let killerRabbit2 = Object.create(protoRabbit);
+		killerRabbit2.type = "ninja";
+		killerRabbit2.speak("Hiiiya!");	// → The assassin rabbit says SKREEEE!
+		killerRabbit2.hello = "Hello there!";
+		console.log(killerRabbit2.hello);
+
+    </script>
+
+</body>
+</html>
