@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Using the XMLHttpRequest Object</h2>
+
+    <div id="demo">
+        <button type="button" onclick="loadXMLDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function loadXMLDoc() {
+            var xhttp = new XMLHttpRequest();
+            // OnReadyStateChange
+            xhttp.onreadystatechange = function () {
+                // Values for readyState:
+                /*
+                    UNSENT = 0; // initial state
+                    OPENED = 1; // open called
+                    HEADERS_RECEIVED = 2; // response headers received
+                    LOADING = 3; // response is loading (a data packed is received)
+                    DONE = 4; // request complete
+
+                    An XMLHttpRequest object travels them in the order 
+                    0 → 1 → 2 → 3 → … → 3 → 4. 
+                    State 3 repeats every time a data packet is received over the network.
+                */
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+
+            //// OnLoad. When the result is ready, includes HTTP errors like 404.
+            //xhttp.onload = function () {
+            //    alert(`Loaded: ${xhttp.status} ${xhttp.response}`);
+            //};
+
+            //// OnError. When the request couldn’t be made, e.g. network down or invalid URL.
+            //xhttp.onerror = function () { // only triggers if the request couldn't be made at all
+            //    alert(`Network Error`);
+            //};
+
+            //// OnProgress. Triggers periodically during the download, reports how much downloaded.
+            //xhttp.onprogress = function (event) { // triggers periodically
+            //    // event.loaded - how many bytes downloaded
+            //    // event.lengthComputable = true if the server sent Content-Length header
+            //    // event.total - total number of bytes (if lengthComputable)
+            //    alert(`Received ${event.loaded} of ${event.total}`);
+            //};
+
+            xhttp.open("GET", "xmlhttp_info.txt", true);
+            xhttp.send();
+        }
+
+        // Sample for POST:
+        //let xhr = new XMLHttpRequest();
+
+        //let json = JSON.stringify({
+        //    name: "John",
+        //    surname: "Smith"
+        //});
+
+        //xhr.open("POST", '/submit')
+        //xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+        //xhr.send(json);
+    </script>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
 
 <p>Use this area to provide additional information.</p>
 
-@untrustedInput
+@*@untrustedInput*@
 
 <div id="injectedData"
      data-untrustedinput="@untrustedInput" />
@@ -31,5 +31,5 @@
     document.write("<br />")
     document.write(clientSideUntrustedInputHtml5);
 
-    //document.write("@encoder.Encode(untrustedInput)");
+    document.write("@encoder.Encode(untrustedInput)");
 </script>

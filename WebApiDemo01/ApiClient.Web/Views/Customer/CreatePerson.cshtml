@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Create a new Person</h2>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" />
+            </div>
+            <div>
+                <button class="btn btn-default" id="create">Create</button>
+            </div>
+            <div>
+                <input type="text" class="form-control" id="postResult" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#create').click(function (e) {
+        var url = "http://localhost:58318/api/personapi/";
+        $.ajax({
+            contentType: 'application/json',
+            type: "POST",
+            url: url,
+            data: JSON.stringify({
+                name: document.getElementById('name').value
+            }),
+            success: function (data, textStatus, jqXHR) {
+                $("#postResult").val("Person created ok. Id=" + jqXHR.responseText);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#postResult").val(jqXHR.statusText);
+            }
+        });
+    });
+</script>

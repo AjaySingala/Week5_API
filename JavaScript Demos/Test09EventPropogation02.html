@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		  body * {
+			margin: 10px;
+			border: 1px solid blue;
+		  }
+		</style>
+	</head>
+<body>
+
+    <h2>Event Propogation Demo 02 - Bubbling</h2>
+	<h5>Check console log</h5>
+
+	<form onclick="alert('form')">FORM
+	  <div onclick="alert('div')">DIV
+		<p onclick="alert('p')">P</p>
+	  </div>
+	</form>
+
+</body>
+</html>

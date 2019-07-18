@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using ApiClient.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiClient.Web.Controllers
@@ -26,11 +27,62 @@ namespace ApiClient.Web.Controllers
             return res;
         }
 
+        public ActionResult XSSTest()
+        {
+            return View(new Person());
+        }
+
+        [HttpPost]
+        //[ValidateInput(false)]
+        public ActionResult XSSTest(Person person)
+        {
+            return View(person);
+
+            //return RedirectToAction("DisplayPerson", new { name = person.Name });
+        }
+
+        public ActionResult DisplayPerson(string name)
+        {
+
+            return View();
+        }
+
         public ActionResult CSRFDemo()
         {
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CSRFDemo(string data)
+        {
+            return View();
+        }
 
+        // For jQuery Demos
+        public ActionResult GetCustomers()
+        {
+            return View();
+        }
+
+        public ActionResult GetUsers()
+        {
+            return View();
+        }
+
+        public ActionResult GetPeople()
+        {
+            return View();
+        }
+
+        public ActionResult GetPerson()
+        {
+            return View();
+        }
+
+        public ActionResult CreatePerson()
+        {
+            return View();
+        }
     }
 }

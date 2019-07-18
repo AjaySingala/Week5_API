@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "GetPeople";
+}
+
+<h2>GetPeople</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Get all people</h2>
+            <div>
+                <button class="btn btn-default" id="getPeople">Get People</button>
+            </div>
+            <div>
+                <input type="text" class="form-control" id="getPeopleResult" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$('#getPeople').click(function (e) {
+    $("#getPeopleResult").val("");
+    var url = "http://localhost:58318/api/personapi/";
+    $.ajax({
+        contentType: 'application/json',
+        type: "GET",
+        url: url,
+        success: function (data, textStatus, jqXHR) {
+            data.forEach(function (person) {
+                $("#getPeopleResult").val($("#getPeopleResult").val() + person.name + "|");
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            $("#getPeopleResult").val(jqXHR.statusText);
+        }
+    });
+});
+</script>

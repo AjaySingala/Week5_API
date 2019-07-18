@@ -31,16 +31,27 @@ namespace WebApiDemo01
             services.AddDbContext<ApiDbContext>(opt =>
                 opt.UseInMemoryDatabase("TodoList"));
 
-            // For CORS.
             services.AddCors(options =>
             {
-                options.AddPolicy(MyAllowSpecificOrigins,
+                options.AddPolicy("CorsPolicy",
                     builder =>
-                    {
-                        builder.WithOrigins("http://localhost:58318",
-                                            "http://localhost");
-                    });
+                    builder.WithOrigins("http://localhost:58318")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
+
+            // For CORS.
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(MyAllowSpecificOrigins,
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("http://localhost:58318/")
+            //                .AllowAnyHeader()
+            //                .AllowAnyMethod();
+            //        });
+            //});
 
             //// Multiple policies. Apply to Controller or Action with:
             //// [EnableCors("AnotherPolicy")] or [EnableCors] (for default).
@@ -78,7 +89,15 @@ namespace WebApiDemo01
             }
 
             // For CORS.
-            app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors("CorsPolicy");
+
+            //app.UseCors(MyAllowSpecificOrigins);
+            // Shows UseCors with CorsPolicyBuilder.
+            //app.UseCors(builder =>
+            //{
+            //    //builder.WithOrigins("http://localhost:58318");
+            //    builder.AllowAnyOrigin();
+            //});
 
             // Add these 2 lines for jQuery calls to API.
             app.UseDefaultFiles();
