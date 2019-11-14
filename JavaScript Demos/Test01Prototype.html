@@ -9,7 +9,11 @@
 			this.color = color;
 			this.model = model;
 			this.dateManufactured = dateManufactured;
+			this.noOfTyres = 4;
 		};
+		Car.prototype.getTyres = function(x) {
+			alert(x);
+		}
 		Car.prototype.getColor = function() {
 			return this.color;
 		};
@@ -28,6 +32,8 @@
 		console.log(secondCar.getModel());
 		console.log(secondCar.getColor());
 		console.log(secondCar.carDate()); 
+		console.log(secondCar.getTyres(secondCar.noOfTyres));
+		console.log(secondCar.noOfTyres);
 
     </script>
 

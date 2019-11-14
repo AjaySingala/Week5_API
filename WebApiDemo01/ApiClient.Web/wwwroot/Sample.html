@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>XSS Demo</title>
+</head>
+<body>
+    <div>
+        <label id="demo">This will change</label>
+        <input type="text" id="name" />
+        <button onclick="foo()">Click Me!</button>
+    </div>
+    <script>
+        <!--<script>alert('hello')</script>-->
+        function foo() {
+            var elem = document.getElementById('demo');
+            var elem2 = document.getElementById('name');
+            alert(elem2.value);
+            elem.innerHTML = elem2.value;
+        }
+    </script>
+</body>
+
+</html>

@@ -11,9 +11,15 @@
     <script>
         function init() {
 		  var name = 'outer function'; // name is a local variable created by init
+		  let city = 'Reston';
 		  function displayName() { // displayName() is the inner function, a closure
+			alert('Now displaying name declared in outer fn from a closure');
 			alert(name); // use variable declared in the parent function
+			alert(city);
+			
+			let state = 'VA';
 		  }
+		  alert(state);
 		  displayName();
 		}
 		init();

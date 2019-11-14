@@ -11,7 +11,7 @@ namespace ApiClient.Web.Controllers
 {
     public class CustomerController : Controller
     {
-        private string _url = "http://localhost:54194/";
+        private string _url = "http://localhost:62838/";
 
         public string Index()
         {
@@ -29,7 +29,13 @@ namespace ApiClient.Web.Controllers
 
         public ActionResult XSSTest()
         {
-            return View(new Person());
+            var person = new Person()
+            {
+                Id = 101,
+                Name = "Some name"
+            };
+
+            return View(person);
         }
 
         [HttpPost]

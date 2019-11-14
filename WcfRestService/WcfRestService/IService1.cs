@@ -16,9 +16,12 @@ namespace WcfRestService
         [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetData")]
-        string GetData();
+        string Get();
 
-        string GetData(int value);
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetValue/{value}")]
+        string GetData(string value);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

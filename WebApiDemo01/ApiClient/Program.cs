@@ -13,7 +13,7 @@ namespace ApiClient
 {
     class Program
     {
-        private static string _url = "http://localhost:54194/";
+        private static string _url = "http://localhost:62838/";
 
         static void Main(string[] args)
         {

@@ -16,6 +16,7 @@ namespace WebApiDemo01.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    // Cross-Origin Resource Sharing
     [EnableCors("CorsPolicy")]
     public class CustomerController : ControllerBase
     {

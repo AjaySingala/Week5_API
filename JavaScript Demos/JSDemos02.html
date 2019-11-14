@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+			let x = 25;
+			var y = 100;
+			function show() {
+				let x = 20;
+				alert('x: ' + x);
+
+				var y = 200;
+				alert('y: ' + y);
+			}
+			alert('x: ' + x);
+			alert('y: ' + y);
+			
+			function show2() {
+				alert('y: ' + y);
+			}
+		</script>
+	</head>
+<body>
+
+    <h2>JS Demos - 02</h2>
+	<div id="divOne">
+		<p id="pOne">This is a para</p>
+		<input type="button" id="btnOk" onclick="show();" value="Click Me!">
+		<input type="button" id="btnOk2" onclick="show2();" value="Click Me Again!">
+			
+		</input>
+	</div>
+</body>
+</html>
+
+

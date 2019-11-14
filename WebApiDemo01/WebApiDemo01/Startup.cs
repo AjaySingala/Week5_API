@@ -35,7 +35,7 @@ namespace WebApiDemo01
             {
                 options.AddPolicy("CorsPolicy",
                     builder =>
-                    builder.WithOrigins("http://localhost:58318")
+                    builder.WithOrigins("http://localhost:62839")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
@@ -47,7 +47,7 @@ namespace WebApiDemo01
             //    options.AddPolicy(MyAllowSpecificOrigins,
             //        builder =>
             //        {
-            //            builder.WithOrigins("http://localhost:58318/")
+            //            builder.WithOrigins("http://localhost:62839/")
             //                .AllowAnyHeader()
             //                .AllowAnyMethod();
             //        });
@@ -60,7 +60,7 @@ namespace WebApiDemo01
             //    options.AddDefaultPolicy(
             //        builder =>
             //        {
-            //            builder.WithOrigins("http://localhost:58318",
+            //            builder.WithOrigins("http://localhost:62839",
             //                               "http://localhost");
             //        });
             //    options.AddPolicy("AnotherPolicy",
@@ -95,7 +95,7 @@ namespace WebApiDemo01
             // Shows UseCors with CorsPolicyBuilder.
             //app.UseCors(builder =>
             //{
-            //    //builder.WithOrigins("http://localhost:58318");
+            //    //builder.WithOrigins("http://localhost:62839");
             //    builder.AllowAnyOrigin();
             //});
 

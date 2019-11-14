@@ -8,12 +8,13 @@
 	<div>
 		<p>This is a paragraph</p>
 		<p id="paraOne">Click here</p>
+		<p name="pname">Click me to change!</p>
 	</div>
 
     <script>
 		var elem = document.getElementById("paraOne");
 		elem.addEventListener("click", clicked);
-
+		
 		function clicked()
 		{
 			alert('Clicked!');

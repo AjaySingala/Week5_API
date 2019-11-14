@@ -12,12 +12,14 @@ namespace WcfRestService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        public string GetData()
+        // GET /Service1.svc/GetData
+        public string Get()
         {
             return string.Format("Hello and welcome to WCF RESTful Service");
         }
 
-        public string GetData(int value)
+        // GET /Service1.svc/GetValue/John
+        public string GetData(string value)
         {
             return string.Format("You entered: {0}", value);
         }
