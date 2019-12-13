@@ -1,0 +1,61 @@
+﻿@model Web.UI.Models.CustomerList
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CustomerList</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            @Html.HiddenFor(model => model.Customers)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name)
+            </div>
+            <div>
+                <button type="button" id="add-value" class="btn btn-primary">Add Value</button>
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <table id="listTable">
+        <tbody>
+            @if ((Model?.Customers ?? null) != null)
+            {
+                @foreach (var v in Model.Customers)
+                {
+                    <tr>
+                        <td>@v</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    $('#add-value').click(() => {
+        const hiddenList = $('#Customers');
+        const newValue = $('#Name');
+        if (!hiddenList.val()) {
+            hiddenList.val(newValue.val());
+        } else {
+            hiddenList.val(hiddenList.val() + ',' + newValue.val());
+        }
+        $('#listTable > tbody:last-child').append('<tr><td>' + newValue.val() + '</td></tr>');
+    });
+</script>
